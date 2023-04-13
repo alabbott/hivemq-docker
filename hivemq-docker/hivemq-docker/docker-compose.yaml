@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  hivemq:
+    image: hivemq/hivemq4
+    container_name: hivemq
+    volumes:
+      - ./hivemq-extensions:/opt/hivemq/extensions
+      - ./hivemq-config:/opt/hivemq/conf
+      - ./hivemq-data:/opt/hivemq/data
+    ports:
+      - "1883:1883"
+      - "8080:8080"
+      - "8888:8888"
+      - "8000:8000"
+    restart: always
